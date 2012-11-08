@@ -1,0 +1,13 @@
+// Functions and mixins
+
+// Functions
+
+// Simple function to output a width declaration based on number
+// of columns set in the parameter
+// uses: $grid-column-width, $grid-gutter-width
+@function cols($n: 1) {
+  // add code here...
+}
+
+// Mixins
+
