@@ -10,4 +10,52 @@
 }
 
 // Mixins
+// Responsive breakpoints
+@mixin respond-to($media: default) {
+  @if $media == small {
+    @media screen and (max-width: 30em) {
+      @content;
+    }
+  } @else if $media == large {
+    @media screen and (min-width: 33.236em) {
+      @content;
+    }
+  } @else if $media == default {
+    @media screen and (min-width: 30em) and (max-width: 63.236em) {
+      @content;
+    }
+  }
+}
 
+// Image Replacement
+@mixin image-replace($image) {
+  @if not $image or $image == '' {
+    @warn "$image needed for replacement to work"
+  } @else {
+    background: image-url($image) no-repeat 0 0;
+    @extend %image-replacement;
+    height: image-height($image);
+    width: image-width($image);
+  }
+}
+
+@mixin with-icon($icon, $side: 'left', $position: '0 0') {
+  @if not $icon or $icon == '' {
+    @warn "No $icon specified"
+  } @else {
+    background: image-url($icon) no-repeat unquote($position);
+    padding-#{side}: floor(image-width($icon) + 5);
+  }
+}
+
+@mixin grid($cols: 2, $gutter: $grid-gutter-width) {
+  $width = percentage($cols/100);
+  width: 100%;
+  .unit {
+    margin-right: $gutter;
+    width: $width;
+  }
+  .unit.last {
+    margin-right: 0;
+  }
+}

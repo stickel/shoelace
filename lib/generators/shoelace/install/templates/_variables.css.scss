@@ -2,8 +2,7 @@
 
 // Grid widths
 $grid-width: 960px;
-$grid-gutter-width: 10px;
-$grid-column-width: 40px;
+$grid-gutter-width: 1em;
 
 // Font stack
 $font-base: 'Lucida Grand', 'Helvetica Neue', helvetica, arial, sans-serif;
@@ -12,3 +11,5 @@ $font-heading: $font-base;
 $font-heading-alt: $font-emphasis;
 // Font sizing is handled by normalize.css
 
+// Typography
+$line-height-base: 1.5em !default;
