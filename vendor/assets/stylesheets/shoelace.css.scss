@@ -1,0 +1,53 @@
+// Importing the Shoelace variables, functions, and mixins. You can modify or
+// add to Shoelace variables in app/assets/stylesheets/_variables.css.scss
+@import 'variables';
+@import 'functions_mixins';
+
+// Shoelace uses normalize.css as it's reset. You can change this by commenting out the 
+// following line.
+@import 'normalize';
+
+// Shoelace includes a grid system and modules by default. To turn them off or remove
+// them, comment the @import lines below
+@import 'layout';
+@import 'modules';
+
+// Placeholder classes
+// @include these placeholders to add their properties to your class definitions
+%clearfix, %cf {
+  overflow: hidden;
+  *zoom: 1;
+}
+
+%float-right, %fr {
+  float: right;
+}
+
+%float-left, %fl {
+  float: left;
+}
+
+%clear-both, %c {
+  clear: both;
+}
+
+%clear-right, %cr {
+  clear: right;
+}
+
+%clear-left, %cl {
+  clear: left;
+}
+
+%image-replacement, %ir {
+  overflow: hidden;
+  position: relative;
+  text-indent: 102%;
+  white-space: nowrap;
+}
+
+%inline-block {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
