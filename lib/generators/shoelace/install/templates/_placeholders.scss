@@ -1,0 +1,39 @@
+// Placeholder classes
+// @include these placeholders to add their properties to your class definitions
+%clearfix, %cf {
+  overflow: hidden;
+  *zoom: 1;
+}
+
+%float-right, %fr {
+  float: right;
+}
+
+%float-left, %fl {
+  float: left;
+}
+
+%clear-both, %c {
+  clear: both;
+}
+
+%clear-right, %cr {
+  clear: right;
+}
+
+%clear-left, %cl {
+  clear: left;
+}
+
+%image-replacement, %ir {
+  overflow: hidden;
+  position: relative;
+  text-indent: 102%;
+  white-space: nowrap;
+}
+
+%inline-block {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
