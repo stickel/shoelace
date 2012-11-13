@@ -14,4 +14,6 @@ Gem::Specification.new do |gem|
   gem.name          = "shoelace"
   gem.require_paths = ["lib"]
   gem.version       = Shoelace::VERSION
+
+  gem.add_dependency 'sass', '~> 3.2.3'
 end
