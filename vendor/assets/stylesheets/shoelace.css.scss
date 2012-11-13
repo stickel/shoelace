@@ -5,12 +5,12 @@
 
 // Shoelace uses normalize.css as it's reset. You can change this by commenting out the 
 // following line.
-@import 'normalize';
+@import 'shoelace/normalize';
 
 // Shoelace includes a grid system and modules by default. To turn them off or remove
 // them, comment the @import lines below
-@import 'layout';
-@import 'modules';
+@import 'shoelace/layout';
+@import 'shoelace/modules';
 
 // Placeholder classes
 // @include these placeholders to add their properties to your class definitions
