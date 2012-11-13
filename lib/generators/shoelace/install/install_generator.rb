@@ -14,9 +14,7 @@ module Shoelace
         if File.exists?('app/assets/stylesheets/application.css')
           # Make sure the CSS will be included in the pipeline
           stylesheet = File.read('app/assets/stylesheets/application.css')
-          unless stylesheet.match(/require_tree\s+\.\s*$/)
-            insert_into_file 'app/assets/stylesheets/application.css', " *= require shoelace\n", :after => "require self\n"
-          end
+          insert_into_file 'app/assets/stylesheets/application.css', " *= require shoelace\n", :before => "\s*= require_self\n" unless stylesheet.match(/require shoelace/)
         else
           # Copy the application.css file
           copy_file 'application.css', 'app/assets/stylesheets/application.css'
