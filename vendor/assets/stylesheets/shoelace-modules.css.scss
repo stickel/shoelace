@@ -1,0 +1,34 @@
+// Modules, SMACSS-ish style
+// Include the placeholder styles and variables
+@import 'variables';
+@import 'placeholders';
+
+// Action buttons
+// No Styleguide reference
+%m-button {
+  border: 1px solid $button-text;
+  padding: $button-padding;
+  @extend %inline-block;
+}
+
+.m-button {
+  @include linear-gradient(top, $color-stops: (#eee 60%, $button-bg));
+  color: $button-text;
+  text-shadow: 1px solid #fff;
+  @extend %m-button;
+  @include rounded(1.82em);
+}
+
+.m-button-negative {
+  background: $button-neg-bg;
+  color: $button-neg-text;
+  @extend %m-button;
+  @include rounded(1.82em);
+}
+
+.m-button-positive {
+  background: $button-pos-bg;
+  color: $button-pos-text;
+  @extend %m-button;
+  @include rounded(1.82em);
+}
