@@ -90,3 +90,39 @@
     }
   }
 }
+
+// Add rounded corners
+@mixin rounded($radius) {
+  @include prefixed(border-radius, $radius);
+}
+
+// Utility mixins
+// prefixed, adds vendor prefixes to the specified property
+@mixin prefixed($property, $value) {
+  @each $prefix in $browser-prefixes {
+    #{$prefix}-#{$property}: $value;
+  }
+  #{$property}: $value;
+}
+
+@mixin linear-gradient($start, $color-stops, $image: false) {
+  @if not $start {
+    $start: top;
+  }
+  @each $prefix in $browser-prefixes {
+    @if $image == false {
+      background-image: #{$prefix}-linear-gradient($start, $color-stops);
+    } @else {
+      background-image: $image #{$prefix}-linear-gradient($start, $color-stops);
+    }
+  }
+  @if $image == false {
+    background-image: linear-gradient($start, $color-stops);
+  } @else {
+    background-image: $image linear-gradient($start, $color-stops);
+  }
+}
+
+@mixin box-shadow($shadow...) {
+  @include prefixed(box-shadow, $shadow);
+}
