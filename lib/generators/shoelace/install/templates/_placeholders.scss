@@ -1,5 +1,9 @@
+@import 'variables';
+@import 'functions_mixins';
+
 // Placeholder classes
 // @include these placeholders to add their properties to your class definitions
+// @extend these placeholders to add their properties to your class definitions
 %clearfix, %cf {
   overflow: hidden;
   *zoom: 1;
