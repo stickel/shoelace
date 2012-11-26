@@ -96,9 +96,8 @@
 // prefixed, adds vendor prefixes to the specified property
 @mixin prefixed($property, $value) {
   @each $prefix in $browser-prefixes {
-    #{$prefix}-#{$property}: $value;
+    #{$prefix}#{$property}: $value;
   }
-  #{$property}: $value;
 }
 
 @mixin linear-gradient($start, $color-stops, $image: false) {
@@ -107,15 +106,10 @@
   }
   @each $prefix in $browser-prefixes {
     @if $image == false {
-      background-image: #{$prefix}-linear-gradient($start, $color-stops);
+      background-image: #{$prefix}linear-gradient($start, $color-stops);
     } @else {
-      background-image: $image #{$prefix}-linear-gradient($start, $color-stops);
+      background-image: $image #{$prefix}linear-gradient($start, $color-stops);
     }
-  }
-  @if $image == false {
-    background-image: linear-gradient($start, $color-stops);
-  } @else {
-    background-image: $image linear-gradient($start, $color-stops);
   }
 }
 
