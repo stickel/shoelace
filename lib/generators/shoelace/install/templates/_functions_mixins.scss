@@ -116,3 +116,22 @@
 @mixin box-shadow($shadow...) {
   @include prefixed(box-shadow, $shadow);
 }
+
+@mixin float($direction: left) {
+  float: $direction;
+}
+
+@mixin clear($side: both) {
+  clear: $side;
+}
+
+@mixin clearfix {
+  overflow: hidden;
+  *zoom: 1;
+}
+
+@mixin inline-block {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
