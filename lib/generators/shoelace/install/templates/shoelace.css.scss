@@ -16,3 +16,8 @@
 @import 'shoelace-layout';
 @import 'shoelace-modules';
 
+// Set box-sizing to border box
+body * {
+  @include prefixed(box-sizing, border-box);
+}
+
