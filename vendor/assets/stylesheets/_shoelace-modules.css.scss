@@ -1,0 +1,24 @@
+// Modules, SMACSS-ish style
+// Include the placeholder styles and variables
+@import 'variables';
+@import 'placeholders';
+
+// Action buttons
+// No Styleguide reference
+.m-button {
+  @include button;
+  /*text-shadow: 1px solid #fff;*/
+  @include prefixed(transition, all 0.3s ease-in-out);
+  &.warn {
+    @include button(warn);
+  }
+  &.action {
+    @include button(action);
+  }
+  &.positive {
+    @include button(positive);
+  }
+  &.negative {
+    @include button(negative);
+  }
+}
