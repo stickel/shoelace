@@ -1,4 +1,5 @@
 // Browser prefix variables
+// Only change these if you wish to remove support for a certain browser
 $browser-prefixes: ('-webkit-', '-moz-', '-ms-', '-o-', '');
 
 // Configurable variables, update with your preferences
@@ -12,19 +13,51 @@ $font-base: 'Lucida Grand', 'Helvetica Neue', helvetica, arial, sans-serif;
 $font-emphasis: Georgia, 'Times New Roman', serif;
 $font-heading: $font-base;
 $font-heading-alt: $font-emphasis;
-// Font sizing is handled by normalize.css
+// Font sizing is handled by normalize.css and overwritten in your application.css
+// or shoelace.css.scss. Default font-size is 16px
 
 // Typography
+
 $line-height-base: 1.5em !default;
 
+// Colors
+
+$color-text: #000;
+$color-head: #000;
+$color-subhead: hsl(180, 0%, 20%);
+$color-muted: hsl(180, 0%, 50%);
+$color-emphasis: hsl(40, 90%, 50%);
+
+// Links
+$link-color: hsl(200, 50%, 50%);
+$link-color-hover: hsl(200, 70%, 40%);
+$link-color-error: hsl(5, 70%, 50%);
+$link-color-error-hover: hsl(5, 70%, 40%);
+$link-color-positive: hsl(110, 60%, 50%);
+$link-color-positive-hover: hsl(110, 60%, 40%);
+$link-color-warn: hsl(50, 80%, 50%);
+$link-color-warn-hover: hsl(50, 80%, 40%);
+
+
 // Module variables
+
+// button defaults
 $button-padding: 0.41em 0.75em;
 $button-bg: #aaa;
 $button-text: #222;
-// button modifiers
-// negative action buttons
+
+// negative buttons
 $button-neg-bg: #f00;
 $button-neg-text: #fff;
-// positive action buttons
+
+// positive buttons
 $button-pos-bg: #45D843;
 $button-pos-text: darken($button-pos-bg, 40%);
+
+// warn buttons
+$button-warn-bg: hsl(50, 80%, 50%);
+$button-warn-text: hsl(50, 60%, 20%);
+
+// action buttons
+$button-action-bg: hsl(210, 70%, 40%);
+$button-action-text: #fff;
