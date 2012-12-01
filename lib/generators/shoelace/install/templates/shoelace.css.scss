@@ -21,3 +21,42 @@ body * {
   @include prefixed(box-sizing, border-box);
 }
 
+
+// Here we set some styles for basic HTML elements
+
+// Let's set some margins for typographic elements
+p {
+  margin: 0.465em 0;
+}
+
+// Setting text colors
+
+// Links
+a {
+  // transition hover effects
+  @include prefixed(transition, color 0.3s ease-in-out);
+  &.error {
+    color: $link-color-error;
+    &:hover {
+      color: $link-color-error-hover;
+    }
+  }
+  &.warn {
+    color: $link-color-warn;
+    &:hover {
+      color: $link-color-warn-hover;
+    }
+  }
+  &.close {
+    color: $color-muted;
+    &:hover {
+      color: darken($color-muted, 20%);
+    }
+  }
+  &.muted {
+    color: $color-muted;
+    &:hover {
+      color: darken($color-muted, 20%);
+    }
+  }
+}
