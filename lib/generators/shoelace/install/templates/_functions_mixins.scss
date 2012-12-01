@@ -1,3 +1,4 @@
+@import 'variables';
 // Functions and mixins
 
 // Simple function to output a width declaration based on number
@@ -87,35 +88,7 @@
   }
 }
 
-// Add rounded corners
-@mixin rounded($radius) {
-  @include prefixed(border-radius, $radius);
-}
-
 // Utility mixins
-// prefixed, adds vendor prefixes to the specified property
-@mixin prefixed($property, $value) {
-  @each $prefix in $browser-prefixes {
-    #{$prefix}#{$property}: $value;
-  }
-}
-
-@mixin linear-gradient($start, $color-stops, $image: false) {
-  @if not $start {
-    $start: top;
-  }
-  @each $prefix in $browser-prefixes {
-    @if $image == false {
-      background-image: #{$prefix}linear-gradient($start, $color-stops);
-    } @else {
-      background-image: $image #{$prefix}linear-gradient($start, $color-stops);
-    }
-  }
-}
-
-@mixin box-shadow($shadow...) {
-  @include prefixed(box-shadow, $shadow);
-}
 
 @mixin float($direction: left) {
   float: $direction;
@@ -134,4 +107,66 @@
   display: inline-block;
   *display: inline;
   *zoom: 1;
+}
+
+// prefixed, adds vendor prefixes to the specified property
+@mixin prefixed($property, $value) {
+  @each $prefix in $browser-prefixes {
+    #{$prefix}#{$property}: $value;
+  }
+}
+
+// CSS3
+
+// Rounded corners
+@mixin rounded($radius) {
+  @include prefixed(border-radius, $radius);
+}
+
+// Linear gradient
+@mixin linear-gradient($start, $color-stops, $image: false) {
+  @if not $start {
+    $start: top;
+  }
+  @each $prefix in $browser-prefixes {
+    @if $image == false {
+      background-image: #{$prefix}linear-gradient($start, $color-stops);
+    } @else {
+      background-image: $image #{$prefix}linear-gradient($start, $color-stops);
+    }
+  }
+}
+
+// Box shadow
+@mixin box-shadow($shadow...) {
+  @include prefixed(box-shadow, $shadow);
+}
+
+// Modules
+
+// Buttons
+@mixin button($type: default) {
+  $bg: $button-bg;
+  $text: $button-text;
+  @if $type == 'pos' or $type == 'positive' {
+    $bg: $button-pos-bg;
+    $text: $button-pos-text;
+  } @else if $type == 'neg' or $type == 'negative' {
+    $bg: $button-neg-bg;
+    $text: $button-neg-text;
+  } @else if $type == 'action' {
+    $bg: $button-action-bg;
+    $text: $button-action-text;
+  } @else if $type == 'warn' {
+    $bg: $button-warn-bg;
+    $text: $button-warn-text;
+  }
+  @extend %m-button;
+  @include linear-gradient(top, ($bg 55%, darken($bg, 20%)));
+  color: $text;
+  text-shadow: darken($bg, 20%) 0 1px 0;
+  &:hover {
+    @include linear-gradient(top, (saturate($bg, 25%) 55%, darken($bg, 20%)));
+    @include box-shadow(saturate($bg, 30%) 0 0 5px);
+  }
 }
