@@ -1,0 +1,90 @@
+@import 'variables';
+@import 'placeholders';
+@import 'functions_mixins';
+
+// Form placeholders
+%attached-input {
+  @include inline-block;
+  margin-left: 0;
+  vertical-align: top;
+  width: 16em;
+}
+
+%attached-label {
+  background-color: hsl(0, 0%, 95%);
+  border: 1px solid hsl(0, 0%, 90%);
+  color: hsl(0, 0%, 20%);
+  min-width: 1em;
+  padding-left: 0.465em;
+  padding-right: 0.465em;
+  text-align: center;
+  vertical-align: top;
+  width: auto;
+}
+
+form {
+  padding-bottom: 1.82em;
+
+  fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+    &.buttons {
+      text-align: right;
+    }
+    &.buttons a {
+      margin: 0 0.465em;
+    }
+  }
+
+  textarea, input[type="text"], input[type="password"] {
+    border: 1px solid hsl(0, 0, 90%);
+    line-height: 1.5;
+    margin-bottom: 0.465em;
+    outline: none;
+    padding-left: 0.455em;
+    padding-right: 0.455em;
+    @include rounded(3px);
+    &:focus {
+      border-color: hsl(200,80%, 50%);
+      @include box-shadow(hsl(200, 80%, 50%) 0 0 4px);
+    }
+  }
+
+  label {
+    @include inline-block;
+    // Desparity between labels and inputs when
+    // the label is attached
+    line-height: 1.65;
+  }
+
+  // Attach label to input, before or after
+  .attached-label-before {
+    white-space: nowrap;
+    // Remember to make sure there is zero
+    // whitespace between .label and .target-input
+    .label {
+      @extend %attached-label;
+      margin-right: -1px;
+      @include rounded(3px 0 0 3px);
+    }
+
+    // Arbitrary width set, you can overwrite it
+    // in your application CSS files
+    .target-input {
+      @extend %attached-input;
+      @include rounded(0 3px 3px 0);
+    }
+  }
+  .attached-label-after {
+    .label {
+      margin-left: -1px;
+      @extend %attached-label;
+      @include rounded(0 3px 3px 0);
+    }
+    .target-input {
+      @extend %attached-input;
+      @include rounded(3px 0 0 3px);
+    }
+  }
+}

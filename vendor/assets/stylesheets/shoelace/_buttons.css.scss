@@ -1,0 +1,24 @@
+@import 'variables';
+@import 'placeholders';
+
+// Button Module
+
+// Action buttons
+// No Styleguide reference
+.m-button {
+  @include button;
+  @include prefixed(transition, all 0.3s ease-in-out);
+  &.warn {
+    @include button(warn);
+  }
+  &.action {
+    @include button(action);
+  }
+  &.positive {
+    @include button(positive);
+  }
+  &.negative {
+    @include button(negative);
+  }
+}
+

@@ -11,10 +11,10 @@
    End Normalize
    ========================================= */
 
-// Shoelace includes a grid system and modules by default. To turn them off or remove
-// them, comment the @import lines below
+// By default, include all Shoelace modules. Comment these lines to prevent
+// all modules from loading and @import whatever modules you need in application.css
 @import 'shoelace-layout';
-@import 'shoelace-modules';
+@import 'shoelace/all';
 
 // Set box-sizing to border box
 body * {

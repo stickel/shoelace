@@ -1,0 +1,33 @@
+@import 'variables';
+@import 'placeholders';
+
+// Core message block module
+// .message        - Base message module
+// .message.error  - Add $color-error border and text
+// No Styleguide reference
+.message {
+  margin-bottom: 1em;
+  @include rounded(3px);
+  .title {
+    margin: 0;
+    padding: 0.232em;
+  }
+  p, ul {
+    padding-left: 0.232em;
+    padding-right: 0.232em;
+  }
+  ul {
+    margin-left: 1.82em;
+  }
+
+  // Error message blocks
+  &.error {
+    border: 1px solid darken($color-error, 10%);
+    color: $color-error;
+    .title {
+      background: $color-error;
+      color: hsl(5, 70%, 100%);
+    }
+  }
+}
+

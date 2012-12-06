@@ -1,0 +1,18 @@
+@import 'variables';
+@import 'placeholders';
+
+// Flash messages
+// No Styleguide reference
+.flash-message {
+  @extend %flash-message;
+  &.notice {
+    @include flash-message;
+  }
+  &.warn {
+    @include flash-message(warn);
+  }
+  &.error {
+    @include flash-message(error);
+  }
+}
+
