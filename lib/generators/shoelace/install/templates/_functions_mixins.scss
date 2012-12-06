@@ -146,27 +146,38 @@
 
 // Buttons
 @mixin button($type: default) {
-  $bg: $button-bg;
-  $text: $button-text;
-  @if $type == 'pos' or $type == 'positive' {
-    $bg: $button-pos-bg;
-    $text: $button-pos-text;
-  } @else if $type == 'neg' or $type == 'negative' {
-    $bg: $button-neg-bg;
-    $text: $button-neg-text;
-  } @else if $type == 'action' {
-    $bg: $button-action-bg;
-    $text: $button-action-text;
-  } @else if $type == 'warn' {
-    $bg: $button-warn-bg;
-    $text: $button-warn-text;
-  }
   @extend %m-button;
-  @include linear-gradient(top, ($bg 55%, darken($bg, 20%)));
-  color: $text;
-  text-shadow: darken($bg, 20%) 0 1px 0;
-  &:hover {
-    @include linear-gradient(top, (saturate($bg, 25%) 55%, darken($bg, 20%)));
-    @include box-shadow(saturate($bg, 30%) 0 0 5px);
+  @include rounded(0.41em);
+  @each $color in $button-color-map {
+    @if nth($color, 1) == $type {
+      $bg: nth($color, 2);
+      $text: nth($color, 3);
+      $hover-bg: nth($color, 4);
+      @include linear-gradient(top, ($bg 65%, darken($bg, 10%)));
+      border: 1px solid darken($bg, 20%);
+      color: $text;
+      text-shadow: darken($bg, 10%) 1px 1px 0;
+      &:hover {
+        @include linear-gradient(top, ($hover-bg 65%, darken($hover-bg, 10%)));
+        @include box-shadow($hover-bg 0 0 5px);
+        /*text-shadow: darken($hover-bg, 30%) 1px 1px 0;*/
+      }
+    }
   }
+}
+
+@mixin flash-message($style: notice) {
+  $bg: hsla(200, 50%, 50%, 0.9);
+  $color: $color-notice;
+  @if $style == 'warn' {
+    $bg: hsla(50, 80%, 50%, 0.9);
+    $color: $color-warn;
+  } @else if $style == 'error' {
+    $bg: hsla(5, 70%, 40%, 0.9);
+    $color: $color-error;
+  }
+  background: $bg;
+  border: 1px solid darken($color, 15%);
+  color: darken($color, 30%);
+  @include box-shadow($color 0 0 10px);
 }
