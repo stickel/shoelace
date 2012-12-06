@@ -25,39 +25,71 @@ $line-height-base: 1.5em !default;
 $color-text: #000;
 $color-head: #000;
 $color-subhead: hsl(180, 0%, 20%);
-$color-muted: hsl(180, 0%, 50%);
+$color-muted: hsl(0, 0%, 65%);
 $color-emphasis: hsl(40, 90%, 50%);
+
+// Generic color definitions
+$color-warn: hsl(50, 80%, 50%);
+$color-error: hsl(5, 70%, 40%);
+$color-notice: hsl(200, 50%, 50%);
 
 // Links
 $link-color: hsl(200, 50%, 50%);
 $link-color-hover: hsl(200, 70%, 40%);
-$link-color-error: hsl(5, 70%, 50%);
-$link-color-error-hover: hsl(5, 70%, 40%);
-$link-color-positive: hsl(110, 60%, 50%);
-$link-color-positive-hover: hsl(110, 60%, 40%);
+$link-color-error: hsl(5, 70%, 40%);
+$link-color-error-hover: hsl(5, 70%, 50%);
+$link-color-success: hsl(110, 60%, 40%);
+$link-color-success-hover: hsl(110, 60%, 50%);
 $link-color-warn: hsl(50, 80%, 50%);
-$link-color-warn-hover: hsl(50, 80%, 40%);
+$link-color-warn-hover: hsl(50, 90%, 35%);
 
-
+$boo: hsl(180, 0%, 90%);
 // Module variables
 
-// button defaults
-$button-padding: 0.41em 0.75em;
-$button-bg: #aaa;
-$button-text: #222;
+// Button colors
+// Were making a comma separated list of space separated items
+// until SASS supports maps/hashes
+// https://gist.github.com/1212291
+$button-color-map:
+  // {button type} {bg color} {text color} {hover bg color}
+  default hsl(0, 0%, 90%) #222 hsl(0, 0%, 95%),
+  negative hsl(5, 70%, 50%) hsl(5, 50%, 10%) hsl(5, 95%, 50%),
+  positive hsl(110, 60%, 50%) hsl(110, 60%, 15%) hsl(110, 80%, 60%),
+  warn hsl(50, 80%, 60%) hsl(50, 60%, 20%) hsl(50, 100%, 65%),
+  action hsl(210, 70%, 40%) hsl(210, 70%, 90%) hsl(210, 100%, 50%)
+;
+
+// Button defaults
+$button-padding: 0.232em 0.82em;
+
+
+//$button-bg: hsl(180, 0%, 80%);
+//$button-text: #222;
 
 // negative buttons
-$button-neg-bg: #f00;
-$button-neg-text: #fff;
+//$button-neg-bg: #f00;
+//$button-neg-bg-hover: hsl(5, 95%, 50%);
+//$button-neg-bg-hover: hsl(5, 70%, 50%);
+//$button-neg-bg-hover: hsl(5, 70%, 30%);
+//$button-neg-text: hsl(5, 50%, 10%);
 
 // positive buttons
-$button-pos-bg: #45D843;
-$button-pos-text: darken($button-pos-bg, 40%);
+//$button-pos-bg: #45D843;
+//$button-pos-bg-hover: hsl(110, 80%, 60%);
+//$button-pos-bg-hover: hsl(110, 60%, 50%);
+//$button-pos-bg-hover: hsl(110, 60%, 40%);
+//$button-pos-text: hsl(110, 60%, 15%);
 
 // warn buttons
-$button-warn-bg: hsl(50, 80%, 50%);
-$button-warn-text: hsl(50, 60%, 20%);
+//$button-warn-bg: hsl(50, 80%, 50%);
+//$button-warn-bg-hover: hsl(50, 100%, 65%);
+//$button-warn-bg-hover: hsl(50, 80%, 60%);
+//$button-warn-bg-hover: hsl(50, 80%, 40%);
+//$button-warn-text: hsl(50, 60%, 20%);
 
 // action buttons
-$button-action-bg: hsl(210, 70%, 40%);
-$button-action-text: #fff;
+//$button-action-bg: hsl(210, 70%, 40%);
+//$button-action-bg-hover: hsl(210, 100%, 50%);
+//$button-action-bg-hover: hsl(210, 70%, 40%);
+//$button-action-bg-hover: hsl(210, 70%, 30%);
+//$button-action-text: hsl(210, 70%, 90%);
